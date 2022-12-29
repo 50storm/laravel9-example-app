@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class GetAllUserController extends Controller
+class GetAllUsersController extends Controller
 {
     /**
      * Handle the incoming request.

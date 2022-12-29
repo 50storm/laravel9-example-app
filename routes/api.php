@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GetAllUserController;
+use App\Http\Controllers\GetAllUsersController;
 use App\Http\Controllers\GetUserController;
 
 
@@ -21,6 +21,6 @@ use App\Http\Controllers\GetUserController;
 //     return $request->user();
 // });
 
-Route::get('/users', GetAllUserController::class);
+Route::get('/users', GetAllUsersController::class);
 Route::get('/user/{id}', GetUserController::class);
 
