@@ -16,9 +16,7 @@ class GetUserController extends Controller
      */
     public function __invoke(Request $request)
     {
-        logger($request->id);
         $user = User::find($request->id);
         return $user->toJson();
-
     }
 }
