@@ -26,5 +26,5 @@ use App\Http\Controllers\Users\UpdateUserController;
 Route::get('/users', GetAllUsersController::class);
 Route::get('/user/{id}', GetUserController::class);
 Route::post('/user/create', CreateUserController::class);
-Route::post('/user/update', UpdateUserController::class);
+Route::put('/user/update', UpdateUserController::class);
 
