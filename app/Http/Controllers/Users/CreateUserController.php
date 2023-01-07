@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Users;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +19,9 @@ class CreateUserController extends Controller
     {
         DB::beginTransaction();
         try {
-            var_dump($request->all());
             User::create($request->all());
             DB::commit();
-            var_dump("commit");
         } catch (\Exception $e) {
-            var_dump("rollback");
             DB::rollback();
         }
     }
