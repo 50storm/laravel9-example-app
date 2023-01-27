@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Users;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -15,9 +16,7 @@ class GetUserController extends Controller
      */
     public function __invoke(Request $request)
     {
-        logger($request->id);
         $user = User::find($request->id);
         return $user->toJson();
-
     }
 }

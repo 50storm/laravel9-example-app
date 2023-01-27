@@ -2,8 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GetAllUsersController;
-use App\Http\Controllers\GetUserController;
+use App\Http\Controllers\Users\GetAllUsersController;
+use App\Http\Controllers\Users\GetUserController;
+use App\Http\Controllers\Users\CreateUserController;
+use App\Http\Controllers\Users\UpdateUserController;
 
 
 /*
@@ -23,4 +25,6 @@ use App\Http\Controllers\GetUserController;
 
 Route::get('/users', GetAllUsersController::class);
 Route::get('/user/{id}', GetUserController::class);
+Route::post('/user/create', CreateUserController::class);
+Route::put('/user/update', UpdateUserController::class);
 
