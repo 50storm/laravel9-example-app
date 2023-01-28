@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Http\Resources\UserResource;
+use App\Http\Services\UserService;
 
 class GetUserController extends Controller
 {
@@ -14,9 +15,9 @@ class GetUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, UserService $userService): UserResource
     {
-        $user = User::find($request->id);
-        return $user->toJson();
+        $user = $userService->getUser($request->id);
+        return new UserResource($user);        
     }
 }
