@@ -23,9 +23,14 @@ use App\Http\Controllers\Users\UpdateUserController;
 //     return $request->user();
 // });
 
+// SanctumでTokenの発行
 Route::post('/tokens/create', \App\Http\Controllers\PostSanctumTokenController::class);
-Route::get('/users', GetAllUsersController::class);
-Route::get('/user/{id}', GetUserController::class);
-Route::post('/user/create', CreateUserController::class);
-Route::put('/user/update', UpdateUserController::class);
+// Route::get('/users', GetAllUsersController::class);
 
+// Postmanで作業するときは、Authorization→Bearerを選んでaccessTokenの文字列をセットする
+Route::middleware('auth:sanctum')->group(function() {
+  Route::get('/users', GetAllUsersController::class);
+  Route::get('/user/{id}', GetUserController::class);
+  Route::post('/user/create', CreateUserController::class);
+  Route::put('/user/update', UpdateUserController::class);  
+});
