@@ -23,6 +23,7 @@ use App\Http\Controllers\Users\UpdateUserController;
 //     return $request->user();
 // });
 
+Route::post('/tokens/create', \App\Http\Controllers\PostSanctumTokenController::class);
 Route::get('/users', GetAllUsersController::class);
 Route::get('/user/{id}', GetUserController::class);
 Route::post('/user/create', CreateUserController::class);
