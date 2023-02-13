@@ -19,15 +19,12 @@ use App\Http\Controllers\Users\UpdateUserController;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
 // SanctumでTokenの発行
+// curl -X POST -d "email=yoko28@example.com&password=password"  http://localhost/api/tokens/create | jq
 Route::post('/tokens/create', \App\Http\Controllers\PostSanctumTokenController::class);
-// Route::get('/users', GetAllUsersController::class);
 
 // Postmanで作業するときは、Authorization→Bearerを選んでaccessTokenの文字列をセットする
+// curl -X GET http://localhost/api/users -H 'Authorization: Bearer トークンの値' | jq
 Route::middleware('auth:sanctum')->group(function() {
   Route::get('/users', GetAllUsersController::class);
   Route::get('/user/{id}', GetUserController::class);
