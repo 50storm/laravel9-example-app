@@ -117,6 +117,14 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+        // SQLクエリのログチャンネル
+        'sqlQueryLog' => [
+            'driver' => 'custom',
+            'via' => App\Logging\CreateSqlQueryLogger::class,
+            'path' => storage_path('logs/sql.log'),
+            'level' => 'debug',  // ログレベル debug 以上だけ出力
+            'days' => 7,        // 7日分のログを保持する
+        ],
     ],
     /*
     |--------------------------------------------------------------------------
