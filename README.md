@@ -1,3 +1,7 @@
+# composerをインストールしておいてください
+```
+brew install composer
+```
 # install Laravel sail
 ```
 composer require laravel/sail --dev
