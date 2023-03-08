@@ -31,6 +31,8 @@ docker-compose build
 ```
 # test commands
 ``` 
+// sanctum tokenを作る
+curl -X POST -d "email=testuser@example.com&password=password"  http://localhost/api/tokens/create | jq
 // get users
 curl http://localhost/api/users | jq
 // get one user

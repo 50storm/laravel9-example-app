@@ -20,7 +20,7 @@ use App\Http\Controllers\Users\UpdateUserController;
 */
 
 // SanctumでTokenの発行
-// curl -X POST -d "email=yoko28@example.com&password=password"  http://localhost/api/tokens/create | jq
+// curl -X POST -d "email=testuser@example.com&password=password"  http://localhost/api/tokens/create | jq
 Route::post('/tokens/create', \App\Http\Controllers\PostSanctumTokenController::class);
 
 // Postmanで作業するときは、Authorization→Bearerを選んでaccessTokenの文字列をセットする
